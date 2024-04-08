@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<form method="Post">
+    <h3 align="center">Contact Us</h3>
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <input typer="email" 
+         class="form-control"
+         id="email" 
+         name="email" 
+         placeholder="Enter Email">
+    </div>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" 
+         class="form-control"
+         id="name" 
+         name="name" 
+         placeholder="Enter Your Name">
+    </div>
+    <div class="form-group">
+        <label for="subjectTitle">Subject Title</label>
+        <input type="text" 
+         class="form-control"
+         id="subjectTitle" 
+         name="subjectTitle" 
+         placeholder="Subject Title">
+    </div>
+    <div class="form-group">
+        <label for="comments">Comments</label>
+        <input type="text" 
+         class="form-control"
+         id="comments" 
+         name="comments" 
+         placeholder="Write your message">
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+{% endblock %}
