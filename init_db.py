@@ -12,8 +12,8 @@ def insert_data_from_csv(db_file, csv_file):
         for row in csv_reader:
             cursor.execute(
                 """INSERT INTO locations 
-                              (name, category, address, coordinations, offLeash, outDoorSpace, hours) 
-                              VALUES (?, ?, ?, ?, ?, ?, ?)""",
+                (name, category, address, coordinations, offLeash, outDoorSpace, hours) 
+                VALUES (?, ?, ?, ?, ?, ?, ?)""",
                 row,
             )
 
@@ -27,7 +27,7 @@ def create_tables(db_file):
 
     cursor.execute(
         """CREATE TABLE IF NOT EXISTS locations(
-                        id INTEGER PRIMARY KEY, 
+                        id INTEGER PRIMARY KEY,
                         name TEXT,
                         category TEXT,
                         address TEXT,
@@ -36,9 +36,10 @@ def create_tables(db_file):
                         outDoorSpace INTEGER,
                         hours TEXT )"""
     )
+
     # Create users tables
     cursor.execute(
-        """CREATE TABLE IF NOT EXISTS user (
+        """CREATE TABLE IF NOT EXISTS users (
                         id INTEGER PRIMARY KEY,
                         email TEXT UNIQUE,
                         password TEXT,
@@ -49,7 +50,7 @@ def create_tables(db_file):
 
     # Create favorites table
     cursor.execute(
-        """CREATE TABLE IF NOT EXISTS favorite (
+        """CREATE TABLE IF NOT EXISTS favourites (
                         id INTEGER PRIMARY KEY,
                         user_id INTEGER,
                         place_id INTEGER,
@@ -63,7 +64,7 @@ def create_tables(db_file):
 
 
 def main():
-    db_file = "C:\\Users\\victo\\OneDrive\\Desktop\\CST 8333 Assignment\\DogFriendly\\website\\dogfriendly.sqlite3"
+    db_file = "C:\\Users\\ElmsJ\\Desktop\\DogFriendly\\dogfriendly.sqlite3"
     csv_file = "dogfriendly.csv"
 
     create_tables(db_file)
