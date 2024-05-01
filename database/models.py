@@ -9,7 +9,7 @@ class Locations(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(150), unique=True)
     address = db.Column(db.String(200))
-    coordination = db.Column(db.Integer)
+    coordinates = db.Column(db.Integer)
     category = db.Column(db.String(150))
     offleash = db.Column(db.Integer)
     outdoorspace = db.Column(db.Integer)
