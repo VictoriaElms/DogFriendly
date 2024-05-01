@@ -2,13 +2,14 @@ from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import LoginManager
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import current_user, login_required, logout_user
 from . import db 
 
 auth = Blueprint('auth', __name__)
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template("login.html")
+    return render_template("login.html", user=current_user)
 
 @auth.route('/logout')
 def logout():
@@ -40,20 +41,20 @@ def sign_up():
             flash('Account created!', category= 'success')
             return redirect(url_for('views.home'))
         
-        return render_template('sign_up.html')
+        return render_template('sign_up.html', user=current_user)
     
 @auth.route('/about')
 def about():
-    return render_template("about.html")
+    return render_template("about.html", user=current_user)
 
 @auth.route('locations')
 def locations():
-    return render_template("locations.html")
+    return render_template("locations.html", user=current_user)
 
 @auth.route('myprofile')
 def myprofile():
-    return render_template("myprofile.html")
+    return render_template("myprofile.html", user=current_user)
 
 @auth.route('contactus', methods=['GET', 'POST'])
 def contactus():
-    return render_template("contactus.html")
+    return render_template("contactus.html", user=current_user)
