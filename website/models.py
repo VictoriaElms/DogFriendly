@@ -5,9 +5,11 @@ from sqlalchemy.sql import func
 class Locations(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(150), unique=True)
-    location = db.Column(db.Integer)
+    address = db.Column(db.String(200))
+    coordination = db.Column(db.Integer)
     category = db.Column(db.String(150))
     offleash = db.Column(db.Integer)
+    outdoorspace =db.Column(db.Integer)
     favourite = db.relationship('Favourite') #Not sure if I need this
 
 class Favourite(db.Model):

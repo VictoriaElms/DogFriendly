@@ -1,18 +1,263 @@
-CREATE database dogfriendly; 
-USE dogfriendly;
-
-CREATE TABLE dog_places (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255),
-    type VARCHAR(255),
-    address VARCHAR(255),
-    website VARCHAR(255), 
-    hours VARCHAR(255)
-);
-
-LOAD DATA INFILE 'C:\Users\victo\OneDrive\Desktop\CST 8333 Assignment\DogFriendly\dog friendly - Sheet1.csv'
-INTO TABLE dogfriendly.dog_places
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+Name,Type,Address,Coordinates,Outdoor space,Hours,Offleash
+The Port,Retail,"5485 Clyde St, Halifax, NS B3J 3T5","44.64228908900502, -63.57614903330865   ",0,"Monday
+10 a.m.–9 p.m.
+Tuesday
+10 a.m.–9 p.m. Wednesday
+10 a.m.–9 p.m.
+Thursday
+10 a.m.–9 p.m.
+Friday
+10 a.m.–9 p.m.
+Saturday
+10 a.m.–9 p.m.
+Sunday
+12–5 p.m.",0
+Bishop's Cellar,Retail,"1475 Lower Water St, Halifax, NS B3J 3Z2","44.643948239112355, -63.56945179720673   ",0,"Monday
+10 a.m.–10 p.m.
+Tuesday
+10 a.m.–10 p.m. 
+Wednesday
+10 a.m.–10 p.m.
+Thursday
+10 a.m.–11 p.m.
+Friday
+10 a.m.–11 p.m.
+Saturday
+10 a.m.–11 p.m.
+Sunday
+12–8 p.m.",0
+The Beer Garden,Bar,"1599 Lower Water St, Halifax, NS B3J 1S2","44.646722375523524, -63.5693365737636   ",1,Summer time only,0
+Good Robot Brewing Company,Bar,"2736 Robie St, Halifax, NS B3K 4P2","44.65707192526322, -63.5979297905904 ",1,"Monday
+4–10 p.m.
+Tuesday
+Closed
+Wednesday
+4–10 p.m.
+Thursday
+4–10 p.m.
+Friday
+12 p.m.–1 a.m.
+Saturday
+10 a.m.–1 a.m.
+Sunday
+10 a.m.–10 p.m.",0
+ Garrison Brewing Company ,Bar,"1149 Marginal Rd, Halifax, NS B3H 4P7","44.64015724227044, -63.566234984180745 ",1,"Monday
+12–7 p.m.
+Tuesday
+12–7 p.m.
+Wednesday
+12–7 p.m.
+Thursday
+12–7 p.m.
+Friday
+12–8 p.m.
+Saturday
+10 a.m.–8 p.m.
+Sunday
+10 a.m.–7 p.m.
+",0
+The Bicycle Thief,Restaurant,"1475 Lower Water St, Halifax, NS B3J 3Z2","44.644225252921025, -63.56827204319274    ",1,"Monday
+11:30 a.m.–11 p.m.
+Tuesday
+11:30 a.m.–11 p.m
+Wednesday
+11:30 a.m.–11 p.m.
+Thursday
+11:30 a.m.–11 p.m.
+Friday
+11:30 a.m.–11 p.m.
+Saturday
+11:30 a.m.–11 p.m.
+Sunday
+11:30 a.m.–11 p.m..",0
+Point Pleasant Park,Public Space,"5530 Point Pleasant Dr, Halifax, NS B3H 1B5","44.62819291143239, -63.56685583672028   ",1,"Monday
+5 a.m.–10 p.m.
+Tuesday
+5 a.m.–10 p.m.
+Wednesday
+5 a.m.–10 p.m.
+Thursday
+5 a.m.–10 p.m.
+Friday
+5 a.m.–10 p.m.
+Saturday
+5 a.m.–10 p.m.
+Sunday
+5 a.m.–10 p.m.",1
+Shubie Park,Public Space,"54 Locks Rd, Dartmouth, NS B2X 2M1","44.70167507005951, -63.55540395844657  ",1,null,1
+The Halifax Common,Public Space,"5816 Cogswell St, Halifax, NS B3H 2Z4","44.649556609686655, -63.59100486567926   ",1,"Monday
+6 a.m.–9 p.m.
+Tuesday
+6 a.m.–9 p.m.
+Wednesday
+6 a.m.–9 p.m.
+Thursday
+6 a.m.–9 p.m.
+Friday
+6 a.m.–9 p.m.
+Saturday
+8 a.m.–5 p.m.
+Sunday
+8 a.m.–5 p.m.",0
+Marshalls,Retail,"75 Countryview Dr, Dartmouth, NS B3B 0G4","44.702951815503944, -63.56660485715939",0,,0
+Pet Smart,Retail,"65 Countryview Dr, Dartmouth, NS B3B 0G4","44.70244470675502, -63.566969637562046 ",0,,0
+Pet Valu,Retail,"5686 Spring Garden Rd, Halifax, NS B3J 1H4","44.66890679731514, -63.58546811877693",0,,0
+The Westin Nova Scotian ,Hotel,"1181 Hollis St, Halifax, NS B3H 2P6","44.64032272530165, -63.568257144954956  ",0,Check-in time: 3:00 p.m. Check-out time: 12:00 p.m,0
+Long Lake Provincal park ,Public Space,"10 Dunbrack St, Halifax, NS","44.62168941561044, -63.62489933146177   ",1,"Monday
+6 a.m.–10 p.m.
+Tuesday
+6 a.m.–10 p.m
+Wednesday
+6 a.m.–10 p.m.
+Thursday
+6 a.m.–10 p.m.
+Friday
+6 a.m.–10 p.m.
+Saturday
+6 a.m.–10 p.m.
+Sunday
+6 a.m.–10 p.m..",0
+Halifax Waterfront,Public Space,"1215 Marginal Rd, Halifax, NS B3J 3S8","44.64589354621685, -63.569341721855274  ",1,null,0
+Spindrift Brewing Company,Bar,"21 Frazee Ave, Dartmouth, NS B3B 1Z4","44.71417648717674, -63.58305341796445  ",1,"Monday
+11 a.m.–5:30 p.m.
+Tuesday
+11 a.m.–5:30 p.m.
+Wednesday
+11 a.m.–5:30 p.m.
+Thursday
+11 a.m.–5:30 p.m.
+Friday
+11 a.m.–5:30 p.m.
+Saturday
+11 a.m.–4:30 p.m.
+Sunday
+Closed",0
+Salt Yard Social,Bar,"1600 Lower Water St, Halifax, NS B3J 1S2","44.6467652728165, -63.56941574495474 ",1,null,0
+Pickford and Black,Restaurant,"1869 Upper Water St, Halifax, NS B3J 1S9","44.65049064363458, -63.5722332174352   ",1,"Monday
+11:30 a.m.–9 p.m.
+Tuesday
+11:30 a.m.–9 p.m
+Wednesday
+11:30 a.m.–9 p.m.
+Thursday
+11:30 a.m.–9 p.m.
+Friday
+11:30 a.m.–10 p.m.
+Saturday
+10:30 a.m.–10 p.m.
+Sunday
+10:30 a.m.–9 p.m.
+.",0
+Cabin Coffee,Cafe,"1554 Hollis St, Halifax, NS B3J 1V3","44.645163743920975, -63.571687308606876   ",1,"Monday        6:30 a.m.–6 p.m.        
+Tuesday        6:30 a.m.–6 p.m.      
+Wednesday        6:30 a.m.–6 p.m.        
+Thursday        6:30 a.m.–6 p.m.        
+Friday        6:30 a.m.–6 p.m.        
+Saturday        7:30 a.m.–5 p.m.        
+Sunday        7:30 a.m.–5 p.m.         ",0
+Dilly Dally Eats,Cafe,"6100 Quinpool Rd, Halifax, NS B3L 1A1","44.64642661019292, -63.59227986880789 ",1,"Monday
+7 a.m.–5 p.m.
+Tuesday
+7 a.m.–5 p.m.
+Wednesday
+7 a.m.–5 p.m.
+Thursday
+7 a.m.–5 p.m.
+Friday
+7 a.m.–5 p.m.
+Saturday
+7 a.m.–5 p.m.
+Sunday
+7 a.m.–5 p.m.
+",0
+Waterfront Warehouse,Restaurant,"1549 Lower Water St, Halifax, NS B3J 1S2","44.64580006707065, -63.570162763120784 ",1,"Monday
+12–9 p.m.
+Tuesday
+12–9 p.m.
+Wednesday
+12–9 p.m.
+Thursday
+12–9 p.m.
+Friday
+12–10 p.m.
+Saturday
+12–10 p.m.
+Sunday
+12–9 p.m.
+",0
+Lake City Cider,Bar,"35 Portland St, Dartmouth, NS B2Y 1H1","44.665171430729835, -63.567484602624724",1,"Monday
+11 a.m.–8 p.m.
+Tuesday
+11 a.m.–8 p.m.
+Wednesday
+11 a.m.–8 p.m.
+Thursday
+11 a.m.–10 p.m.
+Friday
+11 a.m.–10 p.m.
+Saturday
+11 a.m.–10 p.m.
+Sunday
+11 a.m.–7 p.m.
+",0
+2 Crows Brewing co,Bar,"1932 Brunswick St, Halifax, NS B3J 2G7","44.65005303597559, -63.577812253466234  ",1,"Monday
+Closed
+Tuesday
+Closed
+Wednesday
+12–10 p.m.
+Thursday
+12–10 p.m.
+Friday
+12–11 p.m.
+Saturday
+12–11 p.m.
+Sunday
+12–10 p.m.
+",0
+Oxford Taproom,Bar,"6418 Quinpool Rd, Halifax, NS B3L 1A8","44.644423589335396, -63.60073316005751 ",1,"Monday
+8 a.m.–11 p.m.
+Tuesday
+8 a.m.–11 p.m.
+Wednesday
+8 a.m.–11 p.m.
+Thursday
+8 a.m.–11 p.m.
+Friday
+8 a.m.–12 a.m.
+Saturday
+9 a.m.–12 a.m.
+Sunday
+9 a.m.–11 p.m.
+",0
+North Brewing,Bar,"899 Portland St, Dartmouth, NS B2W 2N4","44.67406241647226, -63.496170049218065
+",1,"Tuesday 12pm-9pm 
+Wednesday 12pm-9pm
+Thursday 12pm - 9pm 
+Friday 11:30am-10pm 
+Saturday 11:30am-10pm
+Sunday 11:30 am-9pm",0
+Dartmouth Commons,Public Space,"Dartmouth, NS","44.66827829436085, -63.572860114630146
+",1,"Monday 6am–11pm        
+Tuesday 6am–11pm      
+Wednesday 6am–11 pm        
+Thursday 6am–11 pm        
+Friday 6am –11pm        
+Saturday 6am- 11pm        
+Sunday 6am–11pm         ",1
+Fort Needham Memorial Park,Public Space,"5515 Stairs Pl, Halifax, NS B3K 3N9","44.66470897809953, -63.599552663625964
+",1,"Monday 8am–11pm        
+Tuesday 8am–11pm      
+Wednesday 8am–11 pm        
+Thursday 8am–11 pm        
+Friday 8am –11pm        
+Saturday 8am- 11pm        
+Sunday 8am–11pm         ",1
+Hemlock Ravine Park ,Public Space,"40 Kent Ave, Halifax, NS B3M 4N1","44.690940998071824, -63.668633458644045
+",1,"Monday 5am–10pm        
+Tuesday 5am–10pm      
+Wednesday 5am–10pm        
+Thursday 5am–10pm        
+Friday 5am –10pm        
+Saturday 5am- 10pm        
+Sunday 5am–10pm         ",1
