@@ -1,7 +1,7 @@
 from flask import request, jsonify, Blueprint
 
 from database.models import Locations
-
+from dogfriendly import db
 
 api = Blueprint("api", __name__)
 
@@ -10,7 +10,19 @@ api = Blueprint("api", __name__)
 @api.route("/api/locations", methods=["GET"])
 def get_locations():
     locations = Locations.query.all()
-    return jsonify([loc.serialize() for loc in locations])
+    return jsonify(
+        [
+            {
+                "address": loc.address,
+                "category": loc.category,
+                "coordinates": loc.coordinates,
+                "name": loc.name,
+                "offleash": loc.offleash,
+                "outdoorspace": loc.outdoorspace
+            }
+            for loc in locations
+        ]
+    )
 
 
 # API endpoint to save a new location
