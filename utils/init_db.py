@@ -11,8 +11,8 @@ def insert_data_from_csv(db_file, csv_file):
         next(csv_reader)  # Skip header row
         for row in csv_reader:
             cursor.execute(
-                """INSERT INTO locations 
-                (name, category, address, coordinations, offLeash, outDoorSpace, hours) 
+                """INSERT INTO locations (name, category, address,
+                 coordinates, offLeash, outDoorSpace, hours)
                 VALUES (?, ?, ?, ?, ?, ?, ?)""",
                 row,
             )
@@ -31,7 +31,7 @@ def create_tables(db_file):
                         name TEXT,
                         category TEXT,
                         address TEXT,
-                        coordinations FLOAT,
+                        coordinates FLOAT,
                         offLeash INTEGER,
                         outDoorSpace INTEGER,
                         hours TEXT )"""

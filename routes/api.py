@@ -1,7 +1,4 @@
-import json
-
-from flask import Flask, request, jsonify, Blueprint
-from flask_sqlalchemy import SQLAlchemy
+from flask import request, jsonify, Blueprint
 
 from database.models import Locations
 
@@ -17,13 +14,13 @@ def get_locations():
 
 
 # API endpoint to save a new location
-@api.route("/api/locations", methods=["POST"])
+@api.route("/api/locations/save", methods=["POST"])
 def save_location():
     data = request.json
     new_location = Locations(
         name=data["name"],
         address=data["address"],
-        coordination=data["coordination"],
+        coordinates=data["coordinates"],
         category=data["category"],
         offleash=data["offleash"],
         outdoorspace=data["outdoorspace"],
@@ -39,7 +36,3 @@ def filter_locations():
     category = request.args.get("category")
     filtered_locations = Locations.query.filter_by(category=category).all()
     return jsonify([loc.serialize() for loc in filtered_locations])
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
