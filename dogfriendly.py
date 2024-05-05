@@ -3,8 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
 db = SQLAlchemy()
-# DB_NAME = "C:\\Users\\victo\\OneDrive\\Desktop\\CST 8333 Assignment\\DogFriendly\\website\\dogfriendly.sqlite3"
-DB_NAME = "C:\\Users\\ElmsJ\\Desktop\\DogFriendly\\dogfriendly.sqlite3"
+DB_NAME = "C:\\Users\\victo\\OneDrive\\Desktop\\CST 8333 Assignment\\DogFriendly\\dogfriendly.sqlite3"
+#DB_NAME = "C:\\Users\\ElmsJ\\Desktop\\DogFriendly\\dogfriendly.sqlite3"
 
 
 def config_blueprints(app):

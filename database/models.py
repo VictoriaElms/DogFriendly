@@ -12,6 +12,7 @@ class Locations(db.Model):
     coordinates = db.Column(db.Integer)
     category = db.Column(db.String(150))
     offleash = db.Column(db.Integer)
+    hours = db.Column(db.String(150))
     outdoorspace = db.Column(db.Integer)
     # favourite = db.relationship("Favourite")  # Not sure if I need this
 

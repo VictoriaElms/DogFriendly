@@ -1,5 +1,4 @@
 from flask import request, jsonify, Blueprint
-
 from database.models import Locations
 from dogfriendly import db
 
@@ -18,6 +17,7 @@ def get_locations():
                 "coordinates": loc.coordinates,
                 "name": loc.name,
                 "offleash": loc.offleash,
+                "hours": loc.hours, 
                 "outdoorspace": loc.outdoorspace
             }
             for loc in locations
@@ -35,6 +35,7 @@ def save_location():
         coordinates=data["coordinates"],
         category=data["category"],
         offleash=data["offleash"],
+        hours=data["hours"],
         outdoorspace=data["outdoorspace"],
     )
     db.session.add(new_location)

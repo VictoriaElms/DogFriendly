@@ -12,7 +12,7 @@ def insert_data_from_csv(db_file, csv_file):
         for row in csv_reader:
             cursor.execute(
                 """INSERT INTO locations (name, category, address,
-                 coordinates, offLeash, outDoorSpace, hours)
+                 coordinates, offLeash, hours, outDoorSpace)
                 VALUES (?, ?, ?, ?, ?, ?, ?)""",
                 row,
             )
@@ -33,8 +33,9 @@ def create_tables(db_file):
                         address TEXT,
                         coordinates FLOAT,
                         offLeash INTEGER,
-                        outDoorSpace INTEGER,
-                        hours TEXT )"""
+                        hours TEXT,
+                        outDoorSpace INTEGER
+                         )"""
     )
 
     # Create users tables
@@ -64,7 +65,7 @@ def create_tables(db_file):
 
 
 def main():
-    db_file = "C:\\Users\\ElmsJ\\Desktop\\DogFriendly\\dogfriendly.sqlite3"
+    db_file = "C:\\Users\\victo\\OneDrive\\Desktop\\CST 8333 Assignment\\DogFriendly\\dogfriendly.sqlite3"
     csv_file = "dogfriendly.csv"
 
     create_tables(db_file)
