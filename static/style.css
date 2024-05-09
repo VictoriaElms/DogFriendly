@@ -1,0 +1,21 @@
+
+#name, #email, #subjectTitle, #username, #password, #password1, #password2{
+    border: solid 1px; 
+    border-color: black;
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+}
+
+#comments{
+    width: 50%;
+    height: 150px;
+    padding: 12px 20px;
+    border: solid 1px;
+    resize: none;
+}
+
+
+#ducktoller{
+    padding: 10px; 
+}

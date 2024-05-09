@@ -1,7 +1,60 @@
-{% extends "base.html" %} {% block title %}Home{% endblock %}
-
-{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name=" viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Home</title>
+      </head>
+      
+      <body style="background-color:powderblue;">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+          <img src="{{ url_for('static', filename='images/HFX Dog Friendly.jpg') }}" alt="HFX Dog Friendly Logo" style="width:50px;height:50px;">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar">
+            <div class="navbar-nav">
+              {% if user.is_authenticated %}
+              <a class="nav-item nav-link" id="myProfile" href="/myprofile">My Profile</a>
+              <a class="nav-item nav-link" id="locations" href="/locations">Locations</a>
+              <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
+              <a class="nav-item nav-link" id="contactUs" href="/contactus">Contact Us</a>
+              {% else %}
+              <a class="nav-item nav-link" id="home" href="/">Home</a>
+              <a class="nav-item nav-link" id="about" href="/about"> About</a>
+              <a class="nav-item nav-link" id="locations" href="/locations">Locations</a>
+              <a class="nav-item nav-link" id="login" href="/login">Login</a>
+              <a class="nav-item nav-link" id="signUp" href="/sign-up">Sign Up</a>
+              <a class="nav-item nav-link" id="contactUs" href="/contactus">Contact Us</a>
+              <input type="text" id="locationsInput" placeholder="Search locations..">
+              {% endif %}
+            </div>
+          </div>
+        </nav>
+      
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %} {% for category, message in messages %}
+        {% if category == 'error' %}
+        <div class="alert alert-danger alter-dismissable fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% else %}
+        <div class="alert alert-success alter-dismissable fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endif %} {% endfor %} {% endif %} {% endwith %}
 <h1 align="center">Welcome to HFX Dog Friendly</h1>
-<p align="center">Planning a day out with your dog? Search this site for dog friendly options</p>
-<img src="{{ url_for('static', filename='images/duck-toller-puppy.jpg') }}" alt="Duck Toller Puppy" align= "center" style="width:800px;height:500px;">
-{% endblock %}
+<p align="center">Want to explore HRM and bring your dog with you? Search this site</p>
+<img src="{{ url_for('static', filename='images/duck-toller-puppy.jpg') }}" class="ducktoller" alt="Nova Scotia Duck Toller Puppy" style="width:600px;height:400px;" >
+</html>

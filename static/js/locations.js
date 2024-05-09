@@ -21,22 +21,48 @@ async function getLocations() {
 
 function formatLocation(location) {
     let para = document.createElement("p");
-    let node = document.createTextNode(location.name);
+    let node = document.createTextNode("Name: " + location.name);
+    let br1 = document.createElement("br");
+    let node2 = document.createTextNode("Category: " + location.category);
+    let br2 = document.createElement("br");
+    let node3 = document.createTextNode("Address: " + location.address);
+    let br3 = document.createElement("br");
+    let node4 = document.createTextNode("Hours: " + location.hours);
     para.appendChild(node);
-    return para
+    para.appendChild(br1);
+    para.appendChild(node2);
+    para.appendChild(br2);
+    para.appendChild(node3);
+    para.appendChild(br3);
+    para.appendChild(node4);
+    return para;
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const locationsList = document.getElementById('locationsList');
 
-// <h3 align="left;">Patios</h3>
-//     <p align="left" style="font-size: 20px;">
-//         The Bicycle Thief
-//         <br>
-//         Dog Friendly Patio
-//         <br>
-//         1475 Lower Water St. Halifax
-//         <br>
-//         Monday – Sunday 11:30am – 11:00pm
-//         </p>
-//         <input type="checkbox" id="saveToProfile" name="saveToProfile" value="save">
-//         <label for="saveToProfile"> Save to Profile</label><br>
-// <br></br>
+    searchInput.addEventListener('input', function(event) {
+        const searchQuery = event.target.value.toLowerCase();
+
+        // Filter locations based on search query
+        const filteredLocations = locations.filter(function(location) {
+            return location.name.toLowerCase().includes(searchQuery) || 
+                   location.category.toLowerCase().includes(searchQuery) ||
+                   location.address.toLowerCase().includes(searchQuery);
+        });
+
+        // Render filtered locations
+        renderLocations(filteredLocations);
+    });
+
+    // Function to render locations
+    function renderLocations(locations) {
+        locationsList.innerHTML = ''; // Clear previous content
+        
+        locations.forEach(function(location) {
+            const locationElement = formatLocation(location);
+            locationsList.appendChild(locationElement);
+        });
+    }
+});
