@@ -9,6 +9,10 @@
           crossorigin="anonymous" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="static\\style.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-t6DZ0GFSoKLoLul6Z+GqFvhjz40BJQQoScB+j/HLHe21L4jL2FadFddKHE1tWQuG" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
         <title>Login </title>
         
       </head>
@@ -33,7 +37,7 @@
               <a class="nav-item nav-link" id="login" href="/login">Login</a>
               <a class="nav-item nav-link" id="signUp" href="/sign-up">Sign Up</a>
               <a class="nav-item nav-link" id="contactUs" href="/contactus">Contact Us</a>
-              <input type="text" id="locationsInput" placeholder="Search locations..">
+              <input type="search" id="locationsInput" placeholder="Search locations..">
               {% endif %}
             </div>
           </div>
@@ -58,7 +62,7 @@
         {% endif %} {% endfor %} {% endif %} {% endwith %}
 <form method="Post">
     <h1 align="center">Login</h1>
-    <div class="form-group" align="center">
+    <div class="form-group" align="left">
         <label for="username">Username</label>
         <input type="text" 
          class="form-control"
@@ -66,7 +70,7 @@
          name="username" 
          placeholder="Enter Username">
     </div>
-    <div class="form-group" align="center">
+    <div class="form-group" align="left">
         <label for="password">Password</label>
         <input type="password" 
          class="form-control"
@@ -75,9 +79,10 @@
          placeholder="Enter Password">
     </div>
     <a href="/.html">Forgot Password</a>
-    <button type="submit" class="btn btn-primary" align="center">Login</button>
+    <button type="submit" class="btn btn-primary">Login</button>
    <br>
-   <img src="{{ url_for('static', filename='images/happy_pitbull.jpg') }}" alt="Grey Pitbull" align= "center" style="width:400px;height:500px;">
-
+   <div align="right">
+   <img src="{{ url_for('static', filename='images/happy_pitbull.jpg') }}" alt="Grey Pitbull" style="width:350px;height:400px;">
+    </div>
 </form>
 </html>

@@ -19,3 +19,22 @@
 #ducktoller{
     padding: 10px; 
 }
+
+#aboutinfo{
+    padding: 25px;
+}
+
+#locations-container{
+    padding: 25px;
+}
+
+
+#locationsInput{
+    display: flex; 
+    flex-direction:column; 
+    gap: .25rem; 
+}
+
+.hide{
+    display: none;
+}

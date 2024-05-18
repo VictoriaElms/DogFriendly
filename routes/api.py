@@ -49,3 +49,8 @@ def filter_locations():
     category = request.args.get("category")
     filtered_locations = Locations.query.filter_by(category=category).all()
     return jsonify([loc.serialize() for loc in filtered_locations])
+
+
+# API endpoint to save locations to profiles
+#@api.route("/api/locations/save", methods=["POST"])
+#def save_locations():
