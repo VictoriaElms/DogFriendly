@@ -16,7 +16,7 @@ function validate(){
 
     if (name.length <3) {
         errors.push("Please Enter a valid Name");}
-    if (email.length < 10){
+    if (email.indexOf("@") == -1 || email.length < 6){
         errors.push("Please Enter a Valid Email");}
     if (subjectTitle.length < 5){
         errors.push("Please Enter a Correct Subject");}
