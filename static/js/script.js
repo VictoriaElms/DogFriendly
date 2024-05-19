@@ -31,3 +31,10 @@ function validate(){
      
     }
     
+class profile {
+    setProfile(u){
+    this.username = u; 
+    
+    this.saveProfile();
+    }
+}

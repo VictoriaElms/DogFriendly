@@ -20,6 +20,10 @@
     padding: 10px; 
 }
 
+#form-group{
+    padding: 25px;
+}
+
 #aboutinfo{
     padding: 25px;
 }
@@ -27,7 +31,6 @@
 #locations-container{
     padding: 25px;
 }
-
 
 #locationsInput{
     display: flex; 
