@@ -75,3 +75,5 @@ def sign_up():
             return redirect(url_for("views.home"))
 
     return render_template("signup.html", user=current_user)
+
+

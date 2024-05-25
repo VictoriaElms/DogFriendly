@@ -50,6 +50,42 @@ def filter_locations():
     filtered_locations = Locations.query.filter_by(category=category).all()
     return jsonify([loc.serialize() for loc in filtered_locations])
 
+def serialize(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'address': self.address,
+            'category': self.category
+        }
+
+@api.route("/api/locations/search", methods=["GET"])
+def search_locations():
+    query = request.args.get("q", "")
+    if query:
+        results = Locations.query.filter(Locations.name.ilike(f"%{query}%")).all()
+    else:
+        results = []
+    return jsonify([loc.serialize() for loc in results])
+
+
+#@api.route("/api/locations/favorites", methods=["GET"])
+#@login_required
+#def get_favorite_locations():
+ #   user_id = current_user.id
+  #  favorite_locations = Locations.query.join(Favorites).filter(Favorites.user_id == user_id).all()
+    
+   # results = []
+    #for location in favorite_locations:
+     #   results.append({
+      #      "id": location.id,
+       #     "name": location.name,
+        #    "address": location.address,
+         #   "category": location.category,
+            # Include any other fields you want to send back
+       # })
+    
+  #  return jsonify(results)
+
 
 # API endpoint to save locations to profiles
 #@api.route("/api/locations/save", methods=["POST"])

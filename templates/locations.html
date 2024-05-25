@@ -53,11 +53,13 @@
           <a class="nav-item nav-link" id="signUp" href="/sign-up">Sign Up</a>
           <a class="nav-item nav-link" id="contactUs" href="/contactus">Contact Us</a>
           <input type="search" id="locationsInput" placeholder="Search locations..">
+          <button class="btn btn-outline-success my-2 my-sm-0" id="searchButton">Search</button>
           {% endif %}
             </div>
       </div>
     </nav>
-
+    <div class="container mt-4" id="searchResults"></div>
+    
     {% with messages = get_flashed_messages(with_categories=true) %} {% if
     messages %} {% for category, message in messages %} {% if category ==
     'error' %}
@@ -76,8 +78,8 @@
     </div>
     {% endif %} {% endfor %} {% endif %} {% endwith %}
     <h1 align="center">Locations</h1>
-    <button type="button" id="showFavourites">Show my Favourites</button> <!--- only show when person is signed in-->
-    <div id="locations-container"></div>
+    <button id="filterFavoritesButton">Show Favorites</button>
+    <div id="favoritesResults"></div>
     
   </body>
 </html>

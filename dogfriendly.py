@@ -39,3 +39,4 @@ def create_app():
     config_login_manager(app)
 
     return app
+
