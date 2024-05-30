@@ -14,14 +14,14 @@ class Locations(db.Model):
     offleash = db.Column(db.Integer)
     hours = db.Column(db.String(150))
     outdoorspace = db.Column(db.Integer)
-    # favourite = db.relationship("Favourite")  # Not sure if I need this
+    
 
 
 class Favourites(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     location_id = db.Column(db.Integer, db.ForeignKey("locations.id"))
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
-    timeAdded = db.Column(db.DateTime(timezone=True), default=func.now())
+    
 
 
 class Users(db.Model, UserMixin):
@@ -30,4 +30,4 @@ class Users(db.Model, UserMixin):
     password = db.Column(db.String(150))
     name = db.Column(db.String(150))
     username = db.Column(db.String(150))
-    # favourite = db.relationship("Favourite")
+    favourite = db.relationship("Favourite")

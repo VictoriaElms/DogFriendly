@@ -20,11 +20,6 @@ def locations():
     return render_template("locations.html", user=current_user)
 
 
-@views.route("myprofile")
-def myprofile():
-    return render_template("myprofile.html", user=current_user)
-
-
 @views.route("contactus", methods=["GET", "POST"])
 def contactus():
     return render_template("contactus.html", user=current_user)

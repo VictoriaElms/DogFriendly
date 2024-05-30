@@ -21,20 +21,24 @@ async function getLocations() {
 
 function formatLocation(location) {
     let para = document.createElement("p");
-    let node = document.createTextNode("Name: " + location.name);
+    let locationName = document.createTextNode("Name: " + location.name);
     let br1 = document.createElement("br");
-    let node2 = document.createTextNode("Category: " + location.category);
+    let locationCategory = document.createTextNode("Category: " + location.category);
     let br2 = document.createElement("br");
-    let node3 = document.createTextNode("Address: " + location.address);
+    let locationAddress=document.createTextNode("Address: " + location.address);
     let br3 = document.createElement("br");
-    let node4 = document.createTextNode("Hours: " + location.hours);
-    para.appendChild(node);
+    let locationHours = document.createTextNode("Hours: " + location.hours);
+    let br4 = document.createElement("br")
+    let locationButton = document.createElement("button")
+    para.appendChild(locationName);
     para.appendChild(br1);
-    para.appendChild(node2);
+    para.appendChild(locationCategory);
     para.appendChild(br2);
-    para.appendChild(node3);
+    para.appendChild(locationAddress);
     para.appendChild(br3);
-    para.appendChild(node4);
+    para.appendChild(locationHours);
+    para.appendChild(br4)
+    para.appendChild(locationButton)
     return para;
 }
 
@@ -45,24 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
     searchInput.addEventListener('input', function(event) {
         const searchQuery = event.target.value.toLowerCase();
 
-        // Filter locations based on search query
-        const filteredLocations = locations.filter(function(location) {
-            return location.name.toLowerCase().includes(searchQuery) || 
-                   location.category.toLowerCase().includes(searchQuery) ||
-                   location.address.toLowerCase().includes(searchQuery);
-        });
-
-        // Render filtered locations
-        renderLocations(filteredLocations);
+       
     });
 
-    // Function to render locations
-    function renderLocations(locations) {
-        locationsList.innerHTML = ''; // Clear previous content
-        
-        locations.forEach(function(location) {
-            const locationElement = formatLocation(location);
-            locationsList.appendChild(locationElement);
-        });
-    }
+
 });
