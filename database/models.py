@@ -1,6 +1,5 @@
 # from database import db
 from flask_login import UserMixin
-from sqlalchemy.sql import func
 
 from dogfriendly import db
 
@@ -14,14 +13,12 @@ class Locations(db.Model):
     offleash = db.Column(db.Integer)
     hours = db.Column(db.String(150))
     outdoorspace = db.Column(db.Integer)
-    
 
 
 class Favourites(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     location_id = db.Column(db.Integer, db.ForeignKey("locations.id"))
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
-    
 
 
 class Users(db.Model, UserMixin):
@@ -30,4 +27,3 @@ class Users(db.Model, UserMixin):
     password = db.Column(db.String(150))
     name = db.Column(db.String(150))
     username = db.Column(db.String(150))
-    favourite = db.relationship("Favourite")
