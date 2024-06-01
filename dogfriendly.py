@@ -4,7 +4,7 @@ from flask_login import LoginManager
 
 db = SQLAlchemy()
 DB_NAME = "C:\\Users\\victo\\OneDrive\\Desktop\\CST 8333 Assignment\\DogFriendly\\dogfriendly.sqlite3"
-#DB_NAME = "C:\\Users\\ElmsJ\\Desktop\\DogFriendly\\dogfriendly.sqlite3"
+# DB_NAME = "C:\\Users\\ElmsJ\\Desktop\\DogFriendly\\dogfriendly.sqlite3"
 
 
 def config_blueprints(app):
@@ -39,4 +39,3 @@ def create_app():
     config_login_manager(app)
 
     return app
-

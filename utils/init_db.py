@@ -54,9 +54,9 @@ def create_tables(db_file):
         """CREATE TABLE IF NOT EXISTS favourites (
                         id INTEGER PRIMARY KEY,
                         user_id INTEGER,
-                        place_id INTEGER,
+                        location_id INTEGER,
                         FOREIGN KEY(user_id) REFERENCES users(id),
-                        FOREIGN KEY(place_id) REFERENCES locations(id)
+                        FOREIGN KEY(location_id) REFERENCES locations(id)
                     )"""
     )
 
@@ -66,6 +66,7 @@ def create_tables(db_file):
 
 def main():
     db_file = "C:\\Users\\victo\\OneDrive\\Desktop\\CST 8333 Assignment\\DogFriendly\\dogfriendly.sqlite3"
+    # db_file = "C:\\Users\\ElmsJ\\Desktop\\DogFriendly\\dogfriendly.sqlite3"
     csv_file = "dogfriendly.csv"
 
     create_tables(db_file)

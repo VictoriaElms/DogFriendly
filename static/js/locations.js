@@ -25,11 +25,12 @@ function formatLocation(location) {
     let br1 = document.createElement("br");
     let locationCategory = document.createTextNode("Category: " + location.category);
     let br2 = document.createElement("br");
-    let locationAddress=document.createTextNode("Address: " + location.address);
+    let locationAddress = document.createTextNode("Address: " + location.address);
     let br3 = document.createElement("br");
     let locationHours = document.createTextNode("Hours: " + location.hours);
     let br4 = document.createElement("br")
     let locationButton = document.createElement("button")
+    locationButton.onclick = () => saveLocation(location.name)
     para.appendChild(locationName);
     para.appendChild(br1);
     para.appendChild(locationCategory);
@@ -42,15 +43,15 @@ function formatLocation(location) {
     return para;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+function saveLocation(id) {
+    fetch(`http://127.0.0.1:5000/api/locations/save?id=${id}`);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('searchInput');
     const locationsList = document.getElementById('locationsList');
 
-    searchInput.addEventListener('input', function(event) {
+    searchInput.addEventListener('input', function (event) {
         const searchQuery = event.target.value.toLowerCase();
-
-       
     });
-
-
 });

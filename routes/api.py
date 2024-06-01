@@ -1,8 +1,7 @@
 from flask import request, jsonify, Blueprint
 from flask_login import current_user, login_required
-from database.models import Favourites, Locations, Users
+from database.models import Favourites, Locations
 from dogfriendly import db
-from routes.views import locations
 
 api = Blueprint("api", __name__)
 
@@ -26,8 +25,9 @@ def get_locations():
         ]
     )
 
+
 # API endpoint for favourites
-@api.route("/api/locations/save", methods=["POST"])
+@api.route("/api/locations/save")
 def save_favourites():
     location = Locations.query.filter_by(name=request.args.get("id")).all()
     new_save = Favourites(location_id=location[0].id, user_id=current_user.id)
@@ -35,16 +35,16 @@ def save_favourites():
     db.session.commit()
     return "Location added to favourites"
 
-#API endpoint for show favourites
+
+# API endpoint for show favourites
 @api.route("api/locations/favourites", methods=["GET"])
 def get_favourites():
     login_required
-    rows= Favourites.query.filter_by(user_id=current_user.id).all()
-    location_ids=[]
+    rows = Favourites.query.filter_by(user_id=current_user.id).all()
+    location_ids = []
     for row in rows:
         location_ids.append(row.location_id)
     locations = Locations.query.filter(Locations.id in location_ids).all()
-    #locations = db.session.query(Locations).filter(Locations.id in location_ids).all()
     return jsonify(
         [
             {
@@ -60,7 +60,6 @@ def get_favourites():
         ]
     )
 
-    #Make this end points: get userID then find all of the matching rows in the favourites table and then get the location ids 
-    #return the rows from the locations table that matches the ids 
-    #write front end function in locations.js that adds locations to the div almost the same as the formatLocations
-    
+    # Make this end points: get userID then find all of the matching rows in the favourites table and then get the location ids
+    # return the rows from the locations table that matches the ids
+    # write front end function in locations.js that adds locations to the div almost the same as the formatLocations

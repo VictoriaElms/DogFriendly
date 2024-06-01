@@ -18,7 +18,7 @@ class Locations(db.Model):
 class Favourites(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     location_id = db.Column(db.Integer, db.ForeignKey("locations.id"))
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
 
 
 class Users(db.Model, UserMixin):
