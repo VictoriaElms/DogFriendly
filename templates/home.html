@@ -15,7 +15,7 @@
     <title>Home</title>
 </head>
 
-<body style="background-color:powderblue;">
+<body style="background-image: linear-gradient(to right, #ff9966, #ff5e62);">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <img src="{{ url_for('static', filename='images/HFX Dog Friendly.jpg') }}" alt="HFX Dog Friendly Logo" style="width:50px;height:50px;">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
@@ -34,8 +34,6 @@
             <a class="nav-item nav-link" id="login" href="/login">Login</a>
             <a class="nav-item nav-link" id="signUp" href="/sign-up">Sign Up</a>
             <a class="nav-item nav-link" id="contactUs" href="/contactus">Contact Us</a>
-            <input type="search" id="locationsInput" placeholder="Search locations..">
-            <button class="btn btn-outline-success my-2 my-sm-0" id="searchButton">Search</button>
             {% endif %}
         </div>
     </div>
@@ -63,4 +61,5 @@ messages %} {% for category, message in messages %}
 <p align="center">Want to explore HRM and bring your dog with you? Search this site</p>
 <div align="center"><img src="{{ url_for('static', filename='images/duck-toller-puppy.jpg') }}" class="ducktoller" alt="Nova Scotia Duck Toller Puppy" style="width:600px;height:400px;" >
 </div>
+
   </html>

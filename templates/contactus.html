@@ -16,7 +16,7 @@
         <title>Contact Us </title>
       </head>
       
-      <body style="background-color:powderblue;">
+      <body style="background-image: linear-gradient(to right, #ff9966, #ff5e62);">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <img src="{{ url_for('static', filename='images/HFX Dog Friendly.jpg') }}" alt="HFX Dog Friendly Logo" style="width:50px;height:50px;">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
@@ -35,8 +35,6 @@
               <a class="nav-item nav-link" id="login" href="/login">Login</a>
               <a class="nav-item nav-link" id="signUp" href="/sign-up">Sign Up</a>
               <a class="nav-item nav-link" id="contactUs" href="/contactus">Contact Us</a>
-              <input type="search" id="locationsInput" placeholder="Search locations..">
-              <button class="btn btn-outline-success my-2 my-sm-0" id="searchButton">Search</button>
               {% endif %}
             </div>
           </div>
@@ -60,8 +58,16 @@
           </button>
         </div>
         {% endif %} {% endfor %} {% endif %} {% endwith %}
-<form method="Post">
-
+        <div class="typewriter">
+          <div class="slide"><i></i></div>
+          <div class="paper"></div>
+          <div class="keyboard"></div>
+      </div>
+      <div align="center">
+      <!-- dribbble -->
+      <a class="dribbble" href="https://dribbble.com/shots/8184246-Typewriter" target="_blank"><img src="https://cdn.dribbble.com/assets/dribbble-ball-mark-2bd45f09c2fb58dbbfb44766d5d1d07c5a12972d602ef8b32204d28fa3dda554.svg" alt=""></a>
+<form method="POST">
+</div>
     <h1 align="center">Contact Us</h1>
     <p align="center"> Know another place that is dog friendly? Contact us</p>
     <div class="form-group" align="center">
@@ -99,7 +105,7 @@
     </div>
     <br />
     <div align="center">
-    <button type="submit" class="btn btn-primary" align="center">Submit</button>
+    <button onclick="submit()" class="btn btn-primary" align="center">Submit</button>
     </div>
 </form>
 </div>
