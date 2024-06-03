@@ -44,7 +44,8 @@ def get_favourites():
     location_ids = []
     for row in rows:
         location_ids.append(row.location_id)
-    locations = Locations.query.filter(Locations.id in location_ids).all()
+    locations = Locations.query.filter(Locations.id.in_(location_ids)).all()
+    
     return jsonify(
         [
             {
@@ -59,7 +60,3 @@ def get_favourites():
             for loc in locations
         ]
     )
-
-    # Make this end points: get userID then find all of the matching rows in the favourites table and then get the location ids
-    # return the rows from the locations table that matches the ids
-    # write front end function in locations.js that adds locations to the div almost the same as the formatLocations
