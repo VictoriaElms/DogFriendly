@@ -27,3 +27,12 @@ class Users(db.Model, UserMixin):
     password = db.Column(db.String(150))
     name = db.Column(db.String(150))
     username = db.Column(db.String(150))
+
+class Contact(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(150))
+    name = db.Column(db.String(150))
+    subject = db.Column(db.String(150))
+    comments = db.Column(db.String(300))
+    time = db.Column(db.String(50))
+    
