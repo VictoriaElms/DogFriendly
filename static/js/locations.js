@@ -1,6 +1,6 @@
 async function displayLocations() {
-    console.log("getting locations")
     const loc_div = document.getElementById("locations-container")
+    loc_div.innerHTML = ""
 
     locations = getLocations().then((locations) => {
         for (let idx in locations) {
@@ -9,8 +9,9 @@ async function displayLocations() {
         }
     });
 
-    console.log(locations)
-    console.log("done")
+    const favButton = document.getElementById("filterFavoritesButton")
+    favButton.innerHTML = "Show Favourites"
+    favButton.onclick = () => {getSavedLocations() } 
 }
 
 
@@ -30,6 +31,9 @@ function formatLocation(location) {
     let locationHours = document.createTextNode("Hours: " + location.hours);
     let br4 = document.createElement("br")
     let locationButton = document.createElement("button")
+    locationButton.innerText = "Save to favourites";
+    locationButton.style.borderRadius = "10px";
+    locationButton.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2)";
     locationButton.onclick = () => saveLocation(location.name)
     para.appendChild(locationName);
     para.appendChild(br1);
@@ -55,3 +59,24 @@ document.addEventListener('DOMContentLoaded', function () {
         const searchQuery = event.target.value.toLowerCase();
     });
 });
+
+function getSavedLocations(){
+    const loc_div = document.getElementById("locations-container")
+    loc_div.innerHTML = ""
+    
+    locations = savedLocations().then((locations) => {
+        for (let idx in locations) {
+            let formatted = formatLocation(locations[idx])
+            loc_div.appendChild(formatted)
+        }
+    });
+    const favButton = document.getElementById("filterFavoritesButton")
+    favButton.innerHTML = "Hide Favourites"
+    favButton.onclick = () => { displayLocations() } 
+}
+
+async function savedLocations(){
+    const response = await fetch("http://127.0.0.1:5000/api/locations/favourites");
+    return response.json();
+}
+
