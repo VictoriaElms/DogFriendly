@@ -59,6 +59,17 @@ def create_tables(db_file):
                         FOREIGN KEY(location_id) REFERENCES locations(id)
                     )"""
     )
+    #Create Contact table
+    cursor.execute(
+        """CREATE TABLE IF NOT EXISTS contact(
+                        id INTERGER PRIMARY KEY, 
+                        email TEXT,
+                        name TEXT,
+                        subject TEXT,
+                        comments TEXT, 
+                        time TEXT 
+        )"""
+    )
 
     conn.commit()
     conn.close()
